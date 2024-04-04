@@ -1,19 +1,22 @@
-import NavBar from "@/components/nav-bar";
-import "./globals.css";
+import NavBar from '@/components/nav-bar'
+import AuthProvider from '@/components/providers/auth-provider'
+import './globals.css'
 
 export default function RootLayout({
-  children,
+  children
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body className="dark">
-        <NavBar />
-        <main className="grid h-screen w-screen place-content-center">
-          {children}
-        </main>
+        <AuthProvider>
+          <NavBar />
+          <main className="grid h-screen w-screen place-content-center">
+            {children}
+          </main>
+        </AuthProvider>
       </body>
     </html>
-  );
+  )
 }
